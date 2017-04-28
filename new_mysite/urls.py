@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from test_look import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$',views.index),
+    url(r'^sub_comment/$',views.sub_comment,name='home'),
+    url(r'^delete_comment/(\d+)/$',views.delete_comment),
+    url(r'^update_comment/(\d+)/$',views.update_comment),
 ]

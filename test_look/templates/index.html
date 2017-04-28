@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<form action="{% url 'home' %}" method="post" accept-charset="utf-8">
+<input name="comment" type="username" id="comment"></input>
+<button type="submit">确认</button>
+</form>
+<hr>
+
+
+{%for comment in comments%}
+{{comment.Comment}}
+<button ><a href="/delete_comment/{{comment.id}}/">删除</a></button>
+<form action="/update_comment/{{comment.id}}/" method="post" accept-charset="utf-8">
+<input name="comment" type="username" id="comment"></input>
+<button type="submit">更新</button>
+</form>
+{% if comment.stats %}
+开机
+{% else %}
+关机
+{% endif %}
+<hr>
+{%endfor%}
+
+</body>
+</html>
